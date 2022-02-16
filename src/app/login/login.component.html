@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="form">
+    <input 
+      type="email" 
+      class="input-box"
+      placeholder="Email"
+      required
+      [(ngModel)]="dealer.email"
+      name="email"
+    />
+    <input 
+      type="password" 
+      class="input-box"
+      placeholder="Password"
+      required
+      [(ngModel)]="dealer.password"
+      name="password"
+    />
+    <a routerLink="/register">Don't have an account?</a>
+    <button type="submit" class="register-btn" (click)="loginDealer()">Login Dealer</button>
+    <button type="submit" class="register-btn" (click)="loginDriver()">Login Driver</button>
+  </div>
+</div>
