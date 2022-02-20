@@ -3,10 +3,10 @@ export class Dealer {
   name?: string;
   email?: string;
   password?: string;
-  mobile?: number;
+  mobile?: any;
   natureOfMaterial?: string;
-  weightOfMaterial?: number;
-  quantity?: number;
+  weightOfMaterial?: any;
+  quantity?: any;
   city?: string;
   state?: string;
 }
