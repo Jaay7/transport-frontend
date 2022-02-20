@@ -1,179 +1,198 @@
 <div class="container">
-  <div class="dealer-form">
-    <input 
-      type="text" 
-      class="input-box"
-      placeholder="Name"
-      required
-      [(ngModel)]="dealer.name"
-      name="name"
-    />
-    <input 
-      type="email" 
-      class="input-box"
-      placeholder="Email"
-      required
-      [(ngModel)]="dealer.email"
-      name="email"
-    />
-    <input 
-      type="password" 
-      class="input-box"
-      placeholder="Password"
-      required
-      [(ngModel)]="dealer.password"
-      name="password"
-    />
-    <input 
-      type="tel" 
-      class="input-box"
-      placeholder="Mobile Number"
-      required
-      [(ngModel)]="dealer.mobile"
-      name="mobile"
-    />
-    <input 
-      type="text" 
-      class="input-box"
-      placeholder="Nature Of Material"
-      required
-      [(ngModel)]="dealer.natureOfMaterial"
-      name="natureOfMaterial"
-    />
-    <input 
-      type="number" 
-      class="input-box"
-      placeholder="Weight Of Material"
-      required
-      [(ngModel)]="dealer.weightOfMaterial"
-      name="weightOfMaterial"
-    />
-    <input 
-      type="number" 
-      class="input-box"
-      placeholder="Quantity"
-      required
-      [(ngModel)]="dealer.quantity"
-      name="quantity"
-    />
-    <input 
-      type="text" 
-      class="input-box"
-      placeholder="City"
-      required
-      [(ngModel)]="dealer.city"
-      name="city"
-    />
-    <input 
-      type="text" 
-      class="input-box"
-      placeholder="State"
-      required
-      [(ngModel)]="dealer.state"
-      name="state"
-    />
-    <a routerLink="/login">Already have an account? SignIn</a>
-    <button type="submit" class="register-btn" (click)="addDealer()">Register Dealer</button>
+  <mat-button-toggle-group [(ngModel)]="userType" class="group">
+    <mat-button-toggle value="dealer">Dealer</mat-button-toggle>
+    <mat-button-toggle value="driver">Driver</mat-button-toggle>
+  </mat-button-toggle-group>
+  <div *ngIf="userType == 'dealer'" class="main">
+    <div class="leftImage">
+      <p>SignUp for the Dealer to get all the benefits.</p>
+      <!-- <img class="image" src="https://images.unsplash.com/photo-1624008915317-cb3ad69b16ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80" alt="warehouse" /> -->
+    </div>
+    <div class="dealer-form">
+      <h2>Hey Dealer!</h2>
+      <p>Sign up to get started</p>
+      <input 
+        type="text" 
+        class="input-box"
+        placeholder="Name"
+        required
+        [(ngModel)]="dealer.name"
+        name="name"
+      />
+      <input 
+        type="email" 
+        class="input-box"
+        placeholder="Email"
+        required
+        [(ngModel)]="dealer.email"
+        name="email"
+      />
+      <input 
+        type="password" 
+        class="input-box"
+        placeholder="Password"
+        required
+        [(ngModel)]="dealer.password"
+        name="password"
+      />
+      <input 
+        type="tel" 
+        class="input-box"
+        placeholder="Mobile Number"
+        required
+        [(ngModel)]="dealer.mobile"
+        name="mobile"
+      />
+      <input 
+        type="text" 
+        class="input-box"
+        placeholder="Nature Of Material"
+        required
+        [(ngModel)]="dealer.natureOfMaterial"
+        name="natureOfMaterial"
+      />
+      <input 
+        type="number" 
+        class="input-box"
+        placeholder="Weight Of Material"
+        required
+        [(ngModel)]="dealer.weightOfMaterial"
+        name="weightOfMaterial"
+      />
+      <input 
+        type="number" 
+        class="input-box"
+        placeholder="Quantity"
+        required
+        [(ngModel)]="dealer.quantity"
+        name="quantity"
+      />
+      <input 
+        type="text" 
+        class="input-box"
+        placeholder="City"
+        required
+        [(ngModel)]="dealer.city"
+        name="city"
+      />
+      <input 
+        type="text" 
+        class="input-box"
+        placeholder="State"
+        required
+        [(ngModel)]="dealer.state"
+        name="state"
+      />
+      <p>Already have an account? <a routerLink="/login">SignIn</a></p>
+      <button mat-raised-button type="submit" class="register-btn" (click)="addDealer()">Register Dealer</button>
+    </div>
   </div>
-  <br>
-  <div class="driver-form">
-    <input 
-      type="text" 
-      class="input-box"
-      placeholder="Name"
-      required
-      [(ngModel)]="driver.name"
-      name="name"
-    />
-    <input 
-      type="email" 
-      class="input-box"
-      placeholder="Email"
-      required
-      [(ngModel)]="driver.email"
-      name="email"
-    />
-    <input 
-      type="password" 
-      class="input-box"
-      placeholder="Password"
-      required
-      [(ngModel)]="driver.password"
-      name="password"
-    />
-    <input 
-      type="number" 
-      class="input-box"
-      placeholder="Age"
-      required
-      [(ngModel)]="driver.age"
-      name="age"
-    />
-    <input 
-      type="text" 
-      class="input-box"
-      placeholder="Truck Number"
-      required
-      [(ngModel)]="driver.truckNumber"
-      name="truckNumber"
-    />
-    <input 
-      type="tel" 
-      class="input-box"
-      placeholder="Mobile Number"
-      required
-      [(ngModel)]="driver.mobile"
-      name="mobile"
-    />
-    <input 
-      type="number" 
-      class="input-box"
-      placeholder="Truck Capacity"
-      required
-      [(ngModel)]="driver.truckCapacity"
-      name="truckCapacity"
-    />
-    <input 
-      type="text" 
-      class="input-box"
-      placeholder="Transporter Name"
-      required
-      [(ngModel)]="driver.transporterName"
-      name="transporterName"
-    />
-    <input 
-      type="number" 
-      class="input-box"
-      placeholder="Driving Experience"
-      required
-      [(ngModel)]="driver.drivingExperience"
-      name="drivingExperience"
-    />
-    <input 
-      type="text" 
-      class="input-box"
-      placeholder="Route 1"
-      required
-      [(ngModel)]="driver.route1"
-      name="route1"
-    />
-    <input 
-      type="text" 
-      class="input-box"
-      placeholder="Route 2"
-      required
-      [(ngModel)]="driver.route2"
-      name="route2"
-    />
-    <input 
-      type="text" 
-      class="input-box"
-      placeholder="Route 3"
-      required
-      [(ngModel)]="driver.route3"
-      name="route3"
-    />
-    <a routerLink="/login">Already have an account? SignIn</a>
-    <button type="submit" class="register-btn" (click)="addDriver()">Register Driver</button>
+  <div *ngIf="userType == 'driver'" class="main">
+    <div class="leftImage">
+      <p>SignUp for the Driver to get all the benefits.</p>
+      <!-- <img class="image" src="https://images.unsplash.com/photo-1624008915317-cb3ad69b16ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80" alt="warehouse" /> -->
+    </div>
+    <div class="driver-form">
+      <h2>Hey Driver!</h2>
+      <p>Sign up to get started</p>
+      <input 
+        type="text" 
+        class="input-box"
+        placeholder="Name"
+        required
+        [(ngModel)]="driver.name"
+        name="name"
+      />
+      <input 
+        type="email" 
+        class="input-box"
+        placeholder="Email"
+        required
+        [(ngModel)]="driver.email"
+        name="email"
+      />
+      <input 
+        type="password" 
+        class="input-box"
+        placeholder="Password"
+        required
+        [(ngModel)]="driver.password"
+        name="password"
+      />
+      <input 
+        type="number" 
+        class="input-box"
+        placeholder="Age"
+        required
+        [(ngModel)]="driver.age"
+        name="age"
+      />
+      <input 
+        type="text" 
+        class="input-box"
+        placeholder="Truck Number"
+        required
+        [(ngModel)]="driver.truckNumber"
+        name="truckNumber"
+      />
+      <input 
+        type="tel" 
+        class="input-box"
+        placeholder="Mobile Number"
+        required
+        [(ngModel)]="driver.mobile"
+        name="mobile"
+      />
+      <input 
+        type="number" 
+        class="input-box"
+        placeholder="Truck Capacity"
+        required
+        [(ngModel)]="driver.truckCapacity"
+        name="truckCapacity"
+      />
+      <input 
+        type="text" 
+        class="input-box"
+        placeholder="Transporter Name"
+        required
+        [(ngModel)]="driver.transporterName"
+        name="transporterName"
+      />
+      <input 
+        type="number" 
+        class="input-box"
+        placeholder="Driving Experience"
+        required
+        [(ngModel)]="driver.drivingExperience"
+        name="drivingExperience"
+      />
+      <input 
+        type="text" 
+        class="input-box"
+        placeholder="Route 1"
+        required
+        [(ngModel)]="driver.route1"
+        name="route1"
+      />
+      <input 
+        type="text" 
+        class="input-box"
+        placeholder="Route 2"
+        required
+        [(ngModel)]="driver.route2"
+        name="route2"
+      />
+      <input 
+        type="text" 
+        class="input-box"
+        placeholder="Route 3"
+        required
+        [(ngModel)]="driver.route3"
+        name="route3"
+      />
+      <p>Already have an account? <a routerLink="/login">SignIn</a></p>
+      <button mat-raised-button type="submit" class="register-btn" (click)="addDriver()">Register Driver</button>
+    </div>
   </div>
 </div>

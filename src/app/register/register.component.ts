@@ -4,22 +4,27 @@ import { Dealer } from '../models/dealer.model';
 import { DealerService } from '../services/dealer.service';
 import { Driver } from './../models/driver.model';
 import { DriverService } from './../services/driver.service';
-
+import {BreakpointObserver} from '@angular/cdk/layout';
+import {StepperOrientation} from '@angular/material/stepper';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
+  userType?: string = "dealer";
   
   dealer: Dealer = {
     name: '',
     email: '',
     password: '',
-    mobile: 0,
+    mobile: '',
     natureOfMaterial: '',
-    weightOfMaterial: 0,
-    quantity: 0,
+    weightOfMaterial: '',
+    quantity: '',
     city: '',
     state: ''
   }
@@ -38,8 +43,14 @@ export class RegisterComponent implements OnInit {
     route2: '',
     route3: ''
   }
+  
+  stepperOrientation: Observable<StepperOrientation>;
 
-  constructor(private dealerService: DealerService, private router: Router, private driverService: DriverService) { }
+  constructor(private dealerService: DealerService, private router: Router, private driverService: DriverService, breakpointObserver: BreakpointObserver) {
+    this.stepperOrientation = breakpointObserver
+      .observe('(min-width: 800px)')
+      .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
+  }
 
   ngOnInit(): void {
     if(localStorage.getItem('userId') != null) {
@@ -63,14 +74,18 @@ export class RegisterComponent implements OnInit {
       city: this.dealer.city,
       state: this.dealer.state
     };
-    this.dealerService.addDealer(data).subscribe({
-      next: (response) => {
-        console.log(response);
-        localStorage.setItem('userType', 'dealer');
-        localStorage.setItem('userId', response.id.toString());
-        this.router.navigate(['/login']);
-      }
-    });
+    if(this.dealer.name !== '' || this.dealer.email !== '' || this.dealer.password !== '' || this.dealer.mobile !== '' || this.dealer.natureOfMaterial !== '' || this.dealer.weightOfMaterial !== '' || this.dealer.quantity !== '' || this.dealer.city !== '' || this.dealer.state !== '') {
+      this.dealerService.addDealer(data).subscribe({
+        next: (response) => {
+          console.log(response);
+          localStorage.setItem('userType', 'dealer');
+          localStorage.setItem('userId', response.id.toString());
+          this.router.navigate(['/login']);
+        }
+      });
+    } else {
+      alert('Please fill all the details');
+    }
   }
 
   addDriver(): void {

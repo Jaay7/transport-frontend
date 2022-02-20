@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1240' height='500' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1031%26quot%3b)' fill='none'%3e%3cpath d='M864.16-70.93C744.22-48.75 794.73 244.34 499.2 252.84 203.68 261.34-45.65 375.61-230.71 376.04' stroke='rgba(59%2c 61%2c 63%2c 0.9)' stroke-width='2'%3e%3c/path%3e%3cpath d='M497.43-85.27C412.45-68.27 469.03 129.05 242.64 149.77 16.24 170.49-124.38 400.19-266.95 407.37' stroke='rgba(59%2c 61%2c 63%2c 0.9)' stroke-width='2'%3e%3c/path%3e%3cpath d='M618.32-50.22C501.81-32.11 469.47 228.08 252.92 247.98 36.37 267.88-11.44 417.24-112.48 421.58' stroke='rgba(59%2c 61%2c 63%2c 0.9)' stroke-width='2'%3e%3c/path%3e%3cpath d='M708.67-60.66C566.93-48.89 502.61 219.7 224.84 238.58-52.94 257.46-122.82 483.18-259 490.58' stroke='rgba(59%2c 61%2c 63%2c 0.9)' stroke-width='2'%3e%3c/path%3e%3cpath d='M1121.73-88.66C1004.89-76.88 932.57 171.85 731.78 173.25 531 174.65 536.81 103.25 341.84 103.25 146.86 103.25 50.93 172.97-48.11 173.25' stroke='rgba(59%2c 61%2c 63%2c 0.9)' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1031'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+}
+
+.register-btn {
+  background-color: #212121;
+  color: white;
+  padding: 0px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+.register-btn:hover {
+  background-color: #333333;
+}
+
+a {
+  text-decoration: none;
+  color: #2b2b2b;
+  font-weight: 500;
+}
+
+.form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+  padding: 0px 30px;
+}
+
+.input-box {
+  width: 100%;
+  height: 40px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  padding: 0px 10px;
+  margin: 8px 0;
+  outline: none;
+  font-size: 13px;
+}
+
+.input-box:focus {
+  border: 2px solid #707070;
+}
+
+.or {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  color: #707070;
+}
+
+mat-divider {
+  width: 100%;
+  height: 1px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .leftImage {
+    width: 100%;
+    height: auto;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  .form {
+    width: 100%;
+  }
+}

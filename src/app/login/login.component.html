@@ -1,5 +1,7 @@
 <div class="container">
   <div class="form">
+    <h2>Login Here,</h2>
+    <p>As a dealer or As a driver</p>
     <input 
       type="email" 
       class="input-box"
@@ -16,8 +18,13 @@
       [(ngModel)]="dealer.password"
       name="password"
     />
-    <a routerLink="/register">Don't have an account?</a>
-    <button type="submit" class="register-btn" (click)="loginDealer()">Login Dealer</button>
-    <button type="submit" class="register-btn" (click)="loginDriver()">Login Driver</button>
+    <p>Don't have an account? <a routerLink="/register">Create one</a></p>
+    <button mat-raised-button type="submit" class="register-btn" (click)="loginDealer()">Login Dealer</button>
+    <div class="or">
+      <mat-divider></mat-divider>
+      <span style="padding: 10px;">OR</span>
+      <mat-divider></mat-divider>
+    </div>
+    <button mat-raised-button type="submit" class="register-btn" (click)="loginDriver()">Login Driver</button>
   </div>
 </div>
