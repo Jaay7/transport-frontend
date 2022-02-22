@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import {MediaMatcher} from '@angular/cdk/layout';
+import { DealerService } from './../services/dealer.service';
 @Component({
   selector: 'app-dealer',
   templateUrl: './dealer.component.html',
@@ -10,11 +11,12 @@ export class DealerComponent implements OnInit, OnDestroy {
 
   mobileQuery: MediaQueryList;
   searchText: string = "";
+  drivers: any[] = [];
 
   private _mobileQueryListener: () => void;
   sidenavItems: { name: string; route: string; }[] = [];
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router, private dealerService: DealerService) {
     this.mobileQuery = media.matchMedia('(max-width: 700px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -24,16 +26,18 @@ export class DealerComponent implements OnInit, OnDestroy {
     if(localStorage.getItem('userId') == null) {
       this.router.navigate(['/login']);
     }
-    this.sidenavItems = [
-      {
-        name: 'Home',
-        route: "."
+  }
+
+  getDrivers(searchText: string): void {
+    this.dealerService.getDriversByRoutes(searchText).subscribe({
+      next: (data) => {
+        this.drivers = data;
+        console.log(data);
       },
-      {
-        name: 'Profile',
-        route: "./profile"
+      error: (err) => {
+        console.log(err);
       }
-    ];
+    });
   }
 
   ngOnDestroy(): void {

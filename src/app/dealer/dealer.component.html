@@ -4,6 +4,7 @@
       <button class="close" mat-icon-button (click)="snav.toggle()"><mat-icon>close</mat-icon></button>
       <mat-selection-list [multiple]="false">
         <mat-list-option class="example-nav-item" routerLink="." >Home</mat-list-option>
+        <mat-list-option class="example-nav-item" routerLink=".">My Drivers</mat-list-option>
         <mat-list-option class="example-nav-item" routerLink="./profile">Profile</mat-list-option>
       </mat-selection-list>
     </mat-sidenav>
@@ -17,16 +18,43 @@
             type="search" 
             class="search-input" 
             [(ngModel)]="searchText" 
-            placeholder="Search"
+            (ngModelChange)="getDrivers(searchText)"
+            placeholder="Search drivers by city..."
           />
         </div>
         <span class="example-spacer"></span>
         <button mat-raised-button (click)="logout()" class="logout-btn">Logout</button>
       </mat-toolbar>
-      <div class="content"
-      [style.marginTop.px]="mobileQuery.matches ? 60 : 0">
-        <router-outlet></router-outlet>
-      </div>
+      <ng-container
+        *ngIf="searchText.length > 0; then search; else other"
+      ></ng-container>
+      <ng-template #search>
+        <div class="content"
+        [style.marginTop.px]="mobileQuery.matches ? 60 : 0">
+        <mat-accordion *ngIf="drivers">
+          <mat-expansion-panel class="expansion-panel" *ngFor="let driver of drivers; index as i">
+            <mat-expansion-panel-header>
+              <mat-panel-title style="font-size: 16px; font-weight: 500;">
+                {{driver.name}}
+              </mat-panel-title>
+              <mat-panel-description>
+                {{driver.route1}}, {{driver.route2}}, {{driver.route3}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>Driver Age: {{driver.age}}</p>
+            <p>Driver Mobile Number: {{driver.mobile}}</p>
+            <p>Driver Truck Number: {{driver.truckNumber}}</p>
+            <p>Driver Truck Capacity: {{driver.truckCapacity}} tonnes</p>
+          </mat-expansion-panel>
+        </mat-accordion>
+        </div>
+      </ng-template>
+      <ng-template #other>
+        <div class="content"
+        [style.marginTop.px]="mobileQuery.matches ? 60 : 0">
+          <router-outlet></router-outlet>
+        </div>
+    </ng-template>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

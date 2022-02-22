@@ -85,7 +85,16 @@ h1.example-app-name {
   background-color: transparent;
 }
 
-.search-input::-webkit-search-cancel-button{
+.expansion-panel {
+  margin-top: 20px;
+}
+
+mat-expansion-panel-header {
+  min-height: 60px;
+  height: max-content;
+}
+
+/* .search-input::-webkit-search-cancel-button{
   position:relative;
   right:20px;  
 
@@ -94,7 +103,7 @@ h1.example-app-name {
   width: 20px;
   border-radius:10px;
   background: #121212;
-}
+} */
 
 .example-nav-item {
   color: #fff;
