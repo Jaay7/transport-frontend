@@ -11,6 +11,8 @@ import { DealerComponent } from './dealer/dealer.component';
 import { DriverComponent } from './driver/driver.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialsModule } from './materials/materials.module';
+import { HomeComponent } from './dealer/home/home.component';
+import { ProfileComponent } from './dealer/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { MaterialsModule } from './materials/materials.module';
     RegisterComponent,
     LoginComponent,
     DealerComponent,
-    DriverComponent
+    DriverComponent,
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
   BrowserModule,

@@ -38,4 +38,8 @@ export class DealerService {
     return this.http.get(`http://localhost:5000/api/dealer/getAllDealersByCity/${city}`);
   }
 
+  getDriversByRoutes(city: string): Observable<any> {
+    return this.http.get(`http://localhost:5000/api/dealer/getDriversByRoutes/${city}`);
+  }
+
 }

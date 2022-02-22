@@ -1,2 +1,32 @@
-<p>dealer works!</p>
-<button (click)="logout()">logout</button>
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav [opened]="!mobileQuery.matches" class="example-sidenav" #snav [mode]="mobileQuery.matches ? 'over' : 'side'">
+      <button class="close" mat-icon-button (click)="snav.toggle()"><mat-icon>close</mat-icon></button>
+      <mat-selection-list [multiple]="false">
+        <mat-list-option class="example-nav-item" routerLink="." >Home</mat-list-option>
+        <mat-list-option class="example-nav-item" routerLink="./profile">Profile</mat-list-option>
+      </mat-selection-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <mat-toolbar color="primary" class="example-toolbar">
+        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <div class="searchbox">
+          <mat-icon>search</mat-icon>
+          <input 
+            type="search" 
+            class="search-input" 
+            [(ngModel)]="searchText" 
+            placeholder="Search"
+          />
+        </div>
+        <span class="example-spacer"></span>
+        <button mat-raised-button (click)="logout()" class="logout-btn">Logout</button>
+      </mat-toolbar>
+      <div class="content"
+      [style.marginTop.px]="mobileQuery.matches ? 60 : 0">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

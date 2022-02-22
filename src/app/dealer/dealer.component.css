@@ -1,0 +1,115 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-spacer {
+  flex: 1;
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 5;
+  display: none;
+}
+
+.example-toolbar {
+  background-color: transparent;
+  color: #121212;
+  backdrop-filter: blur(5px);
+  padding: 0px 7% 0px 0px;
+}
+
+.example-is-mobile .example-toolbar {
+  position: fixed;
+  z-index: 2;
+}
+
+h1.example-app-name {
+  margin-left: 8px;
+}
+
+.example-sidenav-container {
+  flex: 1;
+}
+
+.example-is-mobile .example-sidenav-container {
+  flex: 1 0 auto;
+}
+
+.example-sidenav {
+  width: 260px;
+  background-color: #121212;
+  color: #fff;
+}
+
+.logout-btn {
+  background: linear-gradient(to right, #ff5f6d, #ffc371);
+  color: white;
+  padding: 0px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+.content {
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.searchbox {
+  display: flex;
+  width: 40%;
+  min-width: 180px;
+  flex-direction: row;
+  align-items: center;
+  margin: 0px 20px;
+  padding: 5px;
+  border-bottom:  2px solid #858585;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  padding: 5px;
+  font-size: 16px;
+  outline: none;
+  background-color: transparent;
+}
+
+.search-input::-webkit-search-cancel-button{
+  position:relative;
+  right:20px;  
+
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius:10px;
+  background: #121212;
+}
+
+.example-nav-item {
+  color: #fff;
+}
+
+mat-list-option[aria-selected="true"] {
+  background: #636363b3;
+}
+
+@media screen and (max-width: 480px) {
+  .example-sidenav {
+    width: 100%;
+  }
+
+  .close {
+    display: block;
+  }
+}

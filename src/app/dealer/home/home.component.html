@@ -1,0 +1,27 @@
+<h1 class="header"><mat-icon>place</mat-icon> Drivers in {{myCity}}.</h1>
+<ng-container 
+  *ngIf="allDriver.length > 0; then found; else notFound">
+></ng-container>
+
+<ng-template #notFound>
+  <h1>No drivers found.</h1>
+</ng-template>
+
+<ng-template #found>
+  <mat-accordion *ngIf="allDriver">
+    <mat-expansion-panel class="expansion-panel" *ngFor="let driver of allDriver; index as i">
+      <mat-expansion-panel-header>
+        <mat-panel-title style="font-size: 16px; font-weight: 500;">
+          {{driver.name}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{driver.drivingExperience}} years
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>Driver Age: {{driver.age}}</p>
+      <p>Driver Mobile Number: {{driver.mobile}}</p>
+      <p>Driver Truck Number: {{driver.truckNumber}}</p>
+      <p>Driver Truck Capacity: {{driver.truckCapacity}} tonnes</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+</ng-template>
