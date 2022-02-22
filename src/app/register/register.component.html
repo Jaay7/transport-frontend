@@ -10,7 +10,6 @@
     </div>
     <div class="dealer-form">
       <h2>Hey Dealer!</h2>
-      <p>Sign up to get started</p>
       <input 
         type="text" 
         class="input-box"
@@ -70,18 +69,18 @@
       <input 
         type="text" 
         class="input-box"
-        placeholder="City"
-        required
-        [(ngModel)]="dealer.city"
-        name="city"
-      />
-      <input 
-        type="text" 
-        class="input-box"
         placeholder="State"
         required
         [(ngModel)]="dealer.state"
         name="state"
+      />
+      <input 
+        type="text" 
+        class="input-box"
+        placeholder="City"
+        required
+        [(ngModel)]="dealer.city"
+        name="city"
       />
       <p>Already have an account? <a routerLink="/login">SignIn</a></p>
       <button mat-raised-button type="submit" class="register-btn" (click)="addDealer()">Register Dealer</button>
@@ -94,7 +93,6 @@
     </div>
     <div class="driver-form">
       <h2>Hey Driver!</h2>
-      <p>Sign up to get started</p>
       <input 
         type="text" 
         class="input-box"

@@ -114,7 +114,7 @@ p {
 
   .leftImage {
     width: 100%;
-    height: auto;
+    min-height: max-content;
   }
 
   .image {
