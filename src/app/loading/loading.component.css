@@ -1,0 +1,41 @@
+.load-div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #11111128;
+  /* backdrop-filter: blur(3px); */
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  animation: zoom-in-zoom-out 1s ease infinite;
+  transform: scale(1.5);
+}
+
+.baseline {
+  width: 248px;
+  height: 2px;
+  background-color: #292929;
+  margin-top: 23px;
+}
+
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1.5) translateX(0px);
+  }
+/*   
+  50% {
+    transform: scale(1.5);
+    transform: translateX(50px);
+  } */
+
+  100% {
+    transform: scale(1.5) translateX(150px);
+  }
+}

@@ -4,7 +4,7 @@
       <button class="close" mat-icon-button (click)="snav.toggle()"><mat-icon>close</mat-icon></button>
       <mat-selection-list [multiple]="false">
         <mat-list-option class="example-nav-item" routerLink="." >Home</mat-list-option>
-        <mat-list-option class="example-nav-item" routerLink=".">My Drivers</mat-list-option>
+        <mat-list-option class="example-nav-item" routerLink="./my-drivers">My Drivers</mat-list-option>
         <mat-list-option class="example-nav-item" routerLink="./profile">Profile</mat-list-option>
       </mat-selection-list>
     </mat-sidenav>
@@ -29,6 +29,9 @@
         *ngIf="searchText.length > 0; then search; else other"
       ></ng-container>
       <ng-template #search>
+        <div *ngIf="showLoader">
+          <app-loading></app-loading>
+        </div>
         <div class="content"
         [style.marginTop.px]="mobileQuery.matches ? 60 : 0">
         <mat-accordion *ngIf="drivers">

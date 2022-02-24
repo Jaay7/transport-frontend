@@ -12,6 +12,7 @@ export class DealerComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
   searchText: string = "";
   drivers: any[] = [];
+  showLoader: boolean = true;
 
   private _mobileQueryListener: () => void;
   sidenavItems: { name: string; route: string; }[] = [];
@@ -26,6 +27,7 @@ export class DealerComponent implements OnInit, OnDestroy {
     if(localStorage.getItem('userId') == null) {
       this.router.navigate(['/login']);
     }
+    
   }
 
   getDrivers(searchText: string): void {
@@ -38,6 +40,10 @@ export class DealerComponent implements OnInit, OnDestroy {
         console.log(err);
       }
     });
+    this.showLoader = true;
+    setTimeout(() => {
+      this.showLoader = false;
+    }, 1500);
   }
 
   ngOnDestroy(): void {
