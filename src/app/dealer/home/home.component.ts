@@ -36,4 +36,26 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  bookDriver(driverId: number): void {
+    this.DealerService.requestDriver(Number(localStorage.getItem('userId')), driverId).subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  }
+
+  removeRequest(id: number, driverId: number): void {
+    this.DealerService.removeRequest(id, Number(localStorage.getItem('userId')), driverId).subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  }
+
 }

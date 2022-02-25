@@ -51,7 +51,8 @@ h1.example-app-name {
 }
 
 .logout-btn {
-  background: linear-gradient(to right, #ff5f6d, #ffc371);
+  /* background: linear-gradient(to right, #ff5f6d, #ffc371); */
+  background-color: #121212;
   color: white;
   padding: 0px 20px;
   margin: 8px 0;
@@ -86,7 +87,7 @@ h1.example-app-name {
 }
 
 .expansion-panel {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 mat-expansion-panel-header {
@@ -111,6 +112,35 @@ mat-expansion-panel-header {
 
 mat-list-option[aria-selected="true"] {
   background: #636363b3;
+}
+
+.book-btn {
+  background-color: #212121;
+  color: white;
+  padding: 0px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+.others {
+  display: flex;
+  align-items: center;
+}
+
+.others > span {
+  font-size: 15px;
+  font-weight: 500;
+  color: #212121;
+}
+
+.cancel-btn {
+  background-color: #f52e2e;
+  color: white;
+  padding: 0px 20px;
+  margin: 0px 15px;
+  border: none;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 480px) {

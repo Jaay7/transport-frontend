@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialsModule } from './materials/materials.module';
 import { HomeComponent } from './dealer/home/home.component';
 import { ProfileComponent } from './dealer/profile/profile.component';
+import { MyDriverComponent } from './dealer/my-driver/my-driver.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ProfileComponent } from './dealer/profile/profile.component';
     DealerComponent,
     DriverComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    MyDriverComponent,
+    LoadingComponent
   ],
   imports: [
   BrowserModule,

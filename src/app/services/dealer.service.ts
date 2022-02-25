@@ -42,4 +42,16 @@ export class DealerService {
     return this.http.get(`http://localhost:5000/api/dealer/getDriversByRoutes/${city}`);
   }
 
+  requestDriver(dealerId: number, driverId: number): Observable<any> {
+    return this.http.post(`http://localhost:5000/api/dealer/requestDriver/${dealerId}/${driverId}`, {});
+  }
+
+  getRequestedDrivers(dealerId: number): Observable<any> {
+    return this.http.get(`http://localhost:5000/api/dealer/getRequestedDrivers/${dealerId}`);
+  }
+
+  removeRequest(id: number, dealerId: number, driverId: number) {
+    return this.http.delete(`http://localhost:5000/api/dealer/removeRequest/${id}/${dealerId}/${driverId}`);
+  }
+
 }

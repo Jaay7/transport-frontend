@@ -48,6 +48,15 @@
             <p>Driver Mobile Number: {{driver.mobile}}</p>
             <p>Driver Truck Number: {{driver.truckNumber}}</p>
             <p>Driver Truck Capacity: {{driver.truckCapacity}} tonnes</p>
+            <button mat-raised-button *ngIf="driver.reqByDealer == 'none' && driver.accByDriver == 'none'" (click)="bookDriver(driver.id)" class="book-btn">Book</button>
+            <div class="others" *ngIf="driver.reqByDealer == 'sent' && driver.accByDriver == 'pending'" >
+              <span>Request Pending, </span>
+              <button mat-raised-button class="cancel-btn" (click)="removeRequest(driver.cartId, driver.id)">Cancel</button>
+            </div>
+            <div class="others" *ngIf="driver.reqByDealer == 'done' && driver.accByDriver == 'accepted'">
+              <span>Booked!</span>
+              <button mat-raised-button  class="cancel-btn" (click)="removeRequest(driver.cartId, driver.id)">Cancel</button>
+            </div>
           </mat-expansion-panel>
         </mat-accordion>
         </div>

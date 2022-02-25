@@ -55,4 +55,26 @@ export class DealerComponent implements OnInit, OnDestroy {
     this.router.navigate(['/login']);
   }
 
+  bookDriver(driverId: number): void {
+    this.dealerService.requestDriver(Number(localStorage.getItem('userId')), driverId).subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  }
+
+  removeRequest(id: number, driverId: number): void {
+    this.dealerService.removeRequest(id, Number(localStorage.getItem('userId')), driverId).subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  }
+
 }
