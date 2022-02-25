@@ -8,6 +8,7 @@
 
 .expansion-panel {
   margin-top: 10px;
+  box-shadow: 0px 0px 6px #0000001e;
 }
 
 mat-expansion-panel-header {
