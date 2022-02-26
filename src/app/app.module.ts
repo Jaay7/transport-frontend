@@ -15,6 +15,8 @@ import { HomeComponent } from './dealer/home/home.component';
 import { ProfileComponent } from './dealer/profile/profile.component';
 import { MyDriverComponent } from './dealer/my-driver/my-driver.component';
 import { LoadingComponent } from './loading/loading.component';
+import { HomeComponent as DriverHomeComponent } from './driver/home/home.component';
+import { ProfileComponent as DriverProfileComponent } from './driver/profile/profile.component';
 import { RequestsComponent } from './driver/requests/requests.component';
 
 @NgModule({
@@ -28,6 +30,8 @@ import { RequestsComponent } from './driver/requests/requests.component';
     ProfileComponent,
     MyDriverComponent,
     LoadingComponent,
+    DriverHomeComponent,
+    DriverProfileComponent,
     RequestsComponent
   ],
   imports: [
