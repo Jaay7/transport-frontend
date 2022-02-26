@@ -33,4 +33,20 @@ export class DriverService {
   deleteDriver(id: number): Observable<any> {
     return this.http.delete(`http://localhost:5000/api/driver/deleteDriver/${id}`);
   }
+
+  getRequestedDealers(driverId: number): Observable<any> {
+    return this.http.get(`http://localhost:5000/api/driver/getRequestedDealers/${driverId}`);
+  }
+
+  getAcceptedDealers(driverId: number): Observable<any> {
+    return this.http.get(`http://localhost:5000/api/driver/getAcceptedDealers/${driverId}`);
+  }
+
+  acceptDealer(id: number, dealerId: number, driverId: number): Observable<any> {
+    return this.http.put(`http://localhost:5000/api/driver/acceptDealer/${id}/${dealerId}/${driverId}`, {});
+  }
+
+  removeRequest(id: number, dealerId: number, driverId: number): Observable<any> {
+    return this.http.delete(`http://localhost:5000/api/driver/removeRequest/${id}/${dealerId}/${driverId}`);
+  }
 }
