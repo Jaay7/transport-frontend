@@ -15,6 +15,7 @@ import { HomeComponent } from './dealer/home/home.component';
 import { ProfileComponent } from './dealer/profile/profile.component';
 import { MyDriverComponent } from './dealer/my-driver/my-driver.component';
 import { LoadingComponent } from './loading/loading.component';
+import { RequestsComponent } from './driver/requests/requests.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LoadingComponent } from './loading/loading.component';
     HomeComponent,
     ProfileComponent,
     MyDriverComponent,
-    LoadingComponent
+    LoadingComponent,
+    RequestsComponent
   ],
   imports: [
   BrowserModule,

@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent as HomeDriverComponent } from './driver/home/home.component';
 import { ProfileComponent as ProfileDriverComponent } from './driver/profile/profile.component';
+import { RequestsComponent } from './driver/requests/requests.component';
 
 const routes: Routes = [
   { path: "register", component: RegisterComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   ] },
   { path: "driver", component: DriverComponent, children: [
     { path: "", component: HomeDriverComponent },
+    { path: "my-requests", component: RequestsComponent },
     { path: "profile", component: ProfileDriverComponent },
   ] }
 ];
