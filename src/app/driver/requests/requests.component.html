@@ -1,1 +1,31 @@
-<p>requests works!</p>
+<ng-container 
+  *ngIf="myRequests.length > 0; then found; else notFound">
+</ng-container>
+
+<ng-template #notFound>
+  <h1>No requests found.</h1>
+</ng-template>
+
+<ng-template #found>
+  <mat-accordion *ngIf="myRequests">
+    <mat-expansion-panel class="expansion-panel" *ngFor="let req of myRequests; index as i">
+      <mat-expansion-panel-header>
+        <mat-panel-title style="font-size: 16px; font-weight: 500;">
+          {{req.name}}
+        </mat-panel-title>
+        <mat-panel-description>
+          Dealer Id: {{req.dealerId}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="others" *ngIf="req.reqByDealer == 'sent' && req.accByDriver == 'pending'" >
+        <span>Request Pending, </span>
+        <button mat-raised-button class="accept-btn" (click)="acceptRequest(req.cartId, req.dealerId)">Accept</button>
+        <button mat-raised-button  class="cancel-btn" (click)="removeRequest(req.cartId, req.dealerId)">Remove</button>
+      </div>
+      <div class="others" *ngIf="req.reqByDealer == 'done' && req.accByDriver == 'accepted'">
+        <span>Accepted!</span>
+        <button mat-raised-button  class="cancel-btn" (click)="removeRequest(req.cartId, req.dealerId)">Remove</button>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</ng-template>
