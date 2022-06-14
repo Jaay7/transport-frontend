@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Driver } from './../../models/driver.model';
+import { DriverService } from 'src/app/services/driver.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  driver!: Driver;
+
+  constructor(private driverService: DriverService) { }
 
   ngOnInit(): void {
+    this.driverService.getDriver(Number(localStorage.getItem('userId'))).subscribe({
+      next: (response: any) => {
+        this.driver = response;
+      }
+    });
   }
 
 }
