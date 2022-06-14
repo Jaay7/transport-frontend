@@ -11,47 +11,47 @@ export class DealerService {
   constructor(private http: HttpClient) { }
   
   addDealer(dealer: Dealer): Observable<any> {
-    return this.http.post('http://localhost:5000/api/dealer/addDealer', dealer);
+    return this.http.post('https://transport-backend-apis.herokuapp.com/api/dealer/addDealer', dealer);
   }
 
   dealerLogin(email: string, password: string): Observable<any> {
-    return this.http.post('http://localhost:5000/api/dealer/login', {email, password});
+    return this.http.post('https://transport-backend-apis.herokuapp.com/api/dealer/login', {email, password});
   }
 
   getDealer(id: number): Observable<any> {
-    return this.http.get(`http://localhost:5000/api/dealer/getDealer/${id}`);
+    return this.http.get(`https://transport-backend-apis.herokuapp.com/api/dealer/getDealer/${id}`);
   }
 
   getAllDealers(): Observable<any> {
-    return this.http.get('http://localhost:5000/api/dealer/getAllDealers');
+    return this.http.get('https://transport-backend-apis.herokuapp.com/api/dealer/getAllDealers');
   }
 
   updateDealer(dealer:Dealer, id: number): Observable<any> {
-    return this.http.put(`http://localhost:5000/api/dealer/updateDealer/${id}`, dealer);
+    return this.http.put(`https://transport-backend-apis.herokuapp.com/api/dealer/updateDealer/${id}`, dealer);
   }
 
   deleteDealer(id: number): Observable<any> {
-    return this.http.delete(`http://localhost:5000/api/dealer/deleteDealer/${id}`);
+    return this.http.delete(`https://transport-backend-apis.herokuapp.com/api/dealer/deleteDealer/${id}`);
   }
 
   getAllDealersByCity(city: string): Observable<any> {
-    return this.http.get(`http://localhost:5000/api/dealer/getAllDealersByCity/${city}`);
+    return this.http.get(`https://transport-backend-apis.herokuapp.com/api/dealer/getAllDealersByCity/${city}`);
   }
 
   getDriversByRoutes(city: string): Observable<any> {
-    return this.http.get(`http://localhost:5000/api/dealer/getDriversByRoutes/${city}`);
+    return this.http.get(`https://transport-backend-apis.herokuapp.com/api/dealer/getDriversByRoutes/${city}`);
   }
 
   requestDriver(dealerId: number, driverId: number): Observable<any> {
-    return this.http.post(`http://localhost:5000/api/dealer/requestDriver/${dealerId}/${driverId}`, {});
+    return this.http.post(`https://transport-backend-apis.herokuapp.com/api/dealer/requestDriver/${dealerId}/${driverId}`, {});
   }
 
   getRequestedDrivers(dealerId: number): Observable<any> {
-    return this.http.get(`http://localhost:5000/api/dealer/getRequestedDrivers/${dealerId}`);
+    return this.http.get(`https://transport-backend-apis.herokuapp.com/api/dealer/getRequestedDrivers/${dealerId}`);
   }
 
   removeRequest(id: number, dealerId: number, driverId: number) {
-    return this.http.delete(`http://localhost:5000/api/dealer/removeRequest/${id}/${dealerId}/${driverId}`);
+    return this.http.delete(`https://transport-backend-apis.herokuapp.com/api/dealer/removeRequest/${id}/${dealerId}/${driverId}`);
   }
 
 }
